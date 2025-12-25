@@ -2,7 +2,7 @@
 
 ## SpiderFoot Sock Puppet Detector
 
-> *"Finding the strings that connect the puppets"*
+> *"if it looks like a sock, it just might be a sock"*
 
 PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of domains ("sock puppets") that are secretly controlled by the same entity. It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfoot) OSINT scanning, and graph-based network analysis.  Tested on Kali Linux.
 
