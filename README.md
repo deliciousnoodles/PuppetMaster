@@ -4,7 +4,7 @@
 
 > *"Finding the strings that connect the puppets"*
 
-PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of domains ("sock puppets") that are secretly controlled by the same entity. It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfoot) OSINT scanning, and graph-based network analysis.
+PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of domains ("sock puppets") that are secretly controlled by the same entity. It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfoot) OSINT scanning, and graph-based network analysis.  Tested on Kali Linux.
 
 ---
 
@@ -287,7 +287,7 @@ MIT License - Use freely, attribution appreciated.
 
 ## Credits
 
-- Built with [Claude](https://claude.ai)
+- Vibe coded with [Claude](https://claude.ai) 
 - Powered by [SpiderFoot](https://github.com/smicallef/spiderfoot)
 - Network analysis via [NetworkX](https://networkx.org/)
 - Community detection via [python-louvain](https://github.com/taynaud/python-louvain)
@@ -302,4 +302,4 @@ Pull requests welcome!
 
 ---
 
-*PUPPETMASTER - Because sock puppets should be on children's shows, not the internet.*
+*PUPPETMASTER - pwning sock networks since 2025* 
