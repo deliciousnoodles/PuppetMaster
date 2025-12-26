@@ -48,9 +48,10 @@ It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfo
 | Same Google Analytics ID | UA-12345678-1      | **Strongest proof** of same operator |
 | Same AdSense Publisher ID | pub-1234567890    | **Strongest proof** of same operator |
 | Same Google Site Verification | Token string  | **Strongest proof** of same operator |
+| Same SSL certificate | SHA256 fingerprint     | **Strongest proof** of same operator |
 | Same WHOIS registrant | John Doe, 123 Main St | Strong evidence |
 | Same nameservers | ns1.customdns.com          | Strong evidence |
-| Same SSL certificate | SHA256 fingerprint     | **Strongest proof** |
+
 
 **One shared unique identifier = same operator.**
 <<<NOTE:  there can be false positives, follow on analysis required>>
@@ -211,9 +212,9 @@ tmux attach -t puppetmaster
 
 | Tier | Meaning | Examples |
 |------|---------|----------|
-| SMOKING_GUN | One match = almost definitive connection | Same Google Analytics ID, Same email, Same SSL cert |
-| STRONG | 2+ matches = likely connected | Same WHOIS registrant, Same phone number |
-| NOISE | Ignored (too common) | Same CDN, Same cloud hosting provider |
+| SMOKING_GUN    | One match = almost definitive connection | Same Google Analytics ID, Same email, Same SSL cert |
+| STRONG         | 2+ matches = likely connected            | Same WHOIS registrant, Same phone number |
+| NOISE          | Ignored (too common)                     | Same CDN, Same cloud hosting provider |
 
 ### Confidence Levels
 
@@ -286,6 +287,8 @@ MIT License - Use freely, attribution appreciated.
 Found a bug? Have an idea? Open an issue on GitHub.
 
 Pull requests welcome!
+
+enjoy your ramen aldente :)
 
 ---
 
