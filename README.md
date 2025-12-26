@@ -1,10 +1,28 @@
-# PUPPETMASTER
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║   ██████╗ ██╗   ██╗██████╗ ██████╗ ███████╗████████╗                          ║
+║   ██╔══██╗██║   ██║██╔══██╗██╔══██╗██╔════╝╚══██╔══╝                          ║
+║   ██████╔╝██║   ██║██████╔╝██████╔╝█████╗     ██║                             ║
+║   ██╔═══╝ ██║   ██║██╔═══╝ ██╔═══╝ ██╔══╝     ██║                             ║
+║   ██║     ╚██████╔╝██║     ██║     ███████╗   ██║                             ║
+║   ╚═╝      ╚═════╝ ╚═╝     ╚═╝     ╚══════╝   ╚═╝                             ║
+║                                                                               ║
+║   ███╗   ███╗ █████╗ ███████╗████████╗███████╗██████╗                         ║
+║   ████╗ ████║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗                        ║
+║   ██╔████╔██║███████║███████╗   ██║   █████╗  ██████╔╝                        ║
+║   ██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗                        ║
+║   ██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║                        ║
+║   ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝                        ║
+║                                                                               ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
 
 ## SpiderFoot Sock Puppet Detector
+*"if it looks like a sock, it might be a sock"*
 
-> *"if it looks like a sock, it just might be a sock"*
-
-PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of domains ("sock puppets") that are secretly controlled by the same entity. It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfoot) OSINT scanning, and graph-based network analysis.  Tested on Kali Linux.
+PUPPETMASTER is an end-to-end pipeline for discovering if a list of web domains are a "Sock Puppet" network. 
+It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfoot) OSINT scanning, and graph-based network analysis.  
 
 ---
 
@@ -19,20 +37,20 @@ PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of dom
 └─────────────┘     └─────────────┘     └─────────────┘
 ```
 
-1. **Discover** - Scrape Google/DuckDuckGo for competitor or suspicious domains using keywords
-2. **Scan** - Run SpiderFoot OSINT scans in batch mode or interactive Web GUI
-3. **Analyze** - Detect shared infrastructure that proves common ownership
+1. **Discover** -  Scrape Google/DuckDuckGo for competitor or suspicious domains using keywords
+2. **Scan**     -  Run SpiderFoot OSINT scans in batch mode or interactive Web GUI
+3. **Analyze**  -  Detect shared infrastructure that proves common ownership
 
 ### What We Find
 
 | Signal Type | Example | Meaning |
 |-------------|---------|---------|
-| Same Google Analytics ID | UA-12345678-1 | **Definitive proof** of same operator |
-| Same AdSense Publisher ID | pub-1234567890 | **Definitive proof** of same operator |
-| Same Google Site Verification | Token string | **Definitive proof** of same operator |
+| Same Google Analytics ID | UA-12345678-1      | **Strongest proof** of same operator |
+| Same AdSense Publisher ID | pub-1234567890    | **Strongest proof** of same operator |
+| Same Google Site Verification | Token string  | **Strongest proof** of same operator |
 | Same WHOIS registrant | John Doe, 123 Main St | Strong evidence |
-| Same nameservers | ns1.customdns.com | Strong evidence |
-| Same SSL certificate | SHA256 fingerprint | **Definitive proof** |
+| Same nameservers | ns1.customdns.com          | Strong evidence |
+| Same SSL certificate | SHA256 fingerprint     | **Strongest proof** |
 
 **One shared unique identifier = same operator.**
 <<<NOTE:  there can be false positives, follow on analysis required>>
@@ -199,7 +217,7 @@ tmux attach -t puppetmaster
 
 ### Confidence Levels
 
-- **CONFIRMED** - At least one smoking gun signal   <<false positives can happen>> 
+- **CONFIRMED** - At least one smoking gun signal   !! false positives can happen  !!
 - **LIKELY** - Multiple strong signals
 - **POSSIBLE** - Some strong signals
 - **WEAK** - Only weak/supporting signals
@@ -228,7 +246,7 @@ ddgs                  # DuckDuckGo search
 ### How accurate is this?
 
 **Smoking guns are extremely reliable.** 
-<<HOWEVER False posivites do occur.  TODO>> 
+__HOWEVER False posivites can occur.  TODO__
 
 Strong signals are probabilistic. Two matching signals = high confidence.
 
