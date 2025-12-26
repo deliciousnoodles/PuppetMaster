@@ -35,6 +35,7 @@ PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of dom
 | Same SSL certificate | SHA256 fingerprint | **Definitive proof** |
 
 **One shared unique identifier = same operator.**
+<<<NOTE:  there can be false positives, follow on analysis required>>
 
 ### Use Cases
 
@@ -149,14 +150,12 @@ For exploring SpiderFoot's full capabilities:
 ---
 
 ## Remote Access (SSH Tunnels)
-
 Running on a remote server (EC2, VPS)?
-
 ### For SpiderFoot Web GUI:
 
 ```bash
 # On your local machine, create SSH tunnel:
-ssh -L 5001:localhost:5001 user@your-server
+ssh -L <<path to .pem/ssh keys>> 5001:localhost:5001 user@your-server
 
 # Then open in your local browser:
 http://localhost:5001
@@ -183,24 +182,24 @@ tmux attach -t puppetmaster
 | File | Description |
 |------|-------------|
 | `executive_summary.md` | **Start here!** Human-readable overview |
-| `smoking_guns.csv` | All definitive connections with evidence |
-| `clusters.csv` | Domain cluster assignments |
-| `hub_analysis.csv` | Potential controller/C2 domains |
-| `all_connections.csv` | Complete connection list |
-| `signals.csv` | All extracted signals |
-| `network.graphml` | Graph file for visualization tools |
+| `smoking_guns.csv`     | All definitive connections with evidence |
+| `clusters.csv`         | Domain cluster assignments |
+| `hub_analysis.csv`     | Potential controller/C2 domains |
+| `all_connections.csv`  | Complete connection list |
+| `signals.csv`          | All extracted signals |
+| `network.graphml`      | Graph file for visualization tools |
 
 ### Signal Classification
 
 | Tier | Meaning | Examples |
 |------|---------|----------|
-| SMOKING_GUN | One match = definitive connection | Same Google Analytics ID, Same email, Same SSL cert |
+| SMOKING_GUN | One match = almost definitive connection | Same Google Analytics ID, Same email, Same SSL cert |
 | STRONG | 2+ matches = likely connected | Same WHOIS registrant, Same phone number |
 | NOISE | Ignored (too common) | Same CDN, Same cloud hosting provider |
 
 ### Confidence Levels
 
-- **CONFIRMED** - At least one smoking gun signal
+- **CONFIRMED** - At least one smoking gun signal   <<false positives can happen>> 
 - **LIKELY** - Multiple strong signals
 - **POSSIBLE** - Some strong signals
 - **WEAK** - Only weak/supporting signals
@@ -216,10 +215,10 @@ pandas          # Data manipulation
 networkx        # Graph analysis
 tqdm            # Progress bars
 tldextract      # Domain parsing
-matplotlib      # Visualization
-python-louvain  # Community detection (REQUIRED for accurate clustering)
+matplotlib        # Visualization
+python-louvain      # Community detection (REQUIRED for accurate clustering)
 googlesearch-python  # Google search
-ddgs            # DuckDuckGo search
+ddgs                  # DuckDuckGo search
 ```
 
 ---
@@ -228,12 +227,12 @@ ddgs            # DuckDuckGo search
 
 ### How accurate is this?
 
-**Smoking guns are extremely reliable.** If two domains share the same Google Analytics ID, they're definitively controlled by the same entity.
+**Smoking guns are extremely reliable.** 
+<<HOWEVER False posivites do occur.  TODO>> 
 
 Strong signals are probabilistic. Two matching signals = high confidence.
 
 ### What if I get no results?
-
 Could mean:
 1. The domains aren't actually connected
 2. The operators use different tracking/analytics per domain
@@ -241,52 +240,23 @@ Could mean:
 4. Privacy protections hide connecting signals (WHOIS privacy, etc.)
 
 ### How many domains can I analyze?
-
 Tested with 100+ domains / 13 million SpiderFoot rows. Larger datasets work but take longer.
 
 ### Can I use this without SpiderFoot?
-
 Currently no. PUPPETMASTER is designed for SpiderFoot data. The tool can auto-install SpiderFoot for you.
+Technically if your data is structred in spider foots 3 row / 7 row format then this pipeline can injest that
+You can also just modify the expected data structure 
 
 ---
-
-## Advanced Usage
-
-### Programmatic Access
-
-```python
-from core.pipeline import run_full_pipeline
-
-success = run_full_pipeline(
-    input_dir="/path/to/spiderfoot/exports",
-    output_dir="/path/to/results"
-)
-```
-
-### Custom Signal Patterns
-
-Edit `core/signals.py` to add custom signal patterns:
-
-```python
-SIGNAL_CONFIG = {
-    'my_custom_signal': {
-        'tier': SignalTier.SMOKING_GUN,
-        'patterns': [r'my-pattern-\d+'],
-        'spiderfoot_types': ['My Data Type'],
-    },
-}
-```
 
 ---
 
 ## License
-
 MIT License - Use freely, attribution appreciated.
 
 ---
 
 ## Credits
-
 - Vibe coded with [Claude](https://claude.ai) 
 - Powered by [SpiderFoot](https://github.com/smicallef/spiderfoot)
 - Network analysis via [NetworkX](https://networkx.org/)
@@ -295,11 +265,10 @@ MIT License - Use freely, attribution appreciated.
 ---
 
 ## Issues & Contributing
-
 Found a bug? Have an idea? Open an issue on GitHub.
 
 Pull requests welcome!
 
 ---
 
-*PUPPETMASTER - pwning sock networks since 2025* 
+enjoy your pasta aldente! 
