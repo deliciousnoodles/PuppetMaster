@@ -54,7 +54,7 @@ It combines domain discovery, [SpiderFoot](https://github.com/smicallef/spiderfo
 
 
 **One shared unique identifier = same operator.**
-<<<NOTE:  there can be false positives, follow on analysis required>>
+-Fale Positives can occur 
 
 ### Use Cases
 
