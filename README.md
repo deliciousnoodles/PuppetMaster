@@ -276,20 +276,17 @@ MIT License - Use freely, attribution appreciated.
 ---
 
 ## Credits
-- Vibe coded with [Claude](https://claude.ai) 
-- Powered by [SpiderFoot](https://github.com/smicallef/spiderfoot)
-- Network analysis via [NetworkX](https://networkx.org/)
+- Vibe coded with         [Claude](https://claude.ai) 
+- Powered by              [SpiderFoot](https://github.com/smicallef/spiderfoot)
+- Network analysis via    [NetworkX](https://networkx.org/)
 - Community detection via [python-louvain](https://github.com/taynaud/python-louvain)
 
 ---
 
 ## Issues & Contributing
 Found a bug? Have an idea? Open an issue on GitHub.
-
-Pull requests welcome!
-
-enjoy your ramen aldente :)
+Remember, this is mostly AI generated code :) 
 
 ---
 
-enjoy your pasta aldente! 
+thank you!
