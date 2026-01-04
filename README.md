@@ -67,14 +67,17 @@ PUPPETMASTER is an end-to-end pipeline for detecting coordinated networks of dom
 
 | Signal Type | Example | Meaning |
 |-------------|---------|---------|
-| Same Google Analytics ID | UA-12345678-1 | **Definitive proof** of same operator |
-| Same AdSense Publisher ID | pub-1234567890 | **Definitive proof** of same operator |
-| Same Google Site Verification | Token string | **Definitive proof** of same operator |
+| Same Google Analytics ID | UA-12345678-1 | **Extremely Strong Evidence** of same operator |
+| Same AdSense Publisher ID | pub-1234567890 | **Extremely Strong Evidence** of same operator |
+| Same Google Site Verification | Token string | **Extremely Strong Evidence** of same operator |
+| Same SSL certificate | SHA256 fingerprint | **Extremely Strong Evidence** |
 | Same WHOIS registrant | John Doe, 123 Main St | Strong evidence |
 | Same nameservers | ns1.customdns.com | Strong evidence |
-| Same SSL certificate | SHA256 fingerprint | **Definitive proof** |
 
-**One shared unique identifier = same operator.**
+
+**One shared unique identifier = very strong evidence of same operator**
+//FALSE POSITIVES DO HAPPEN. 
+//So far, we have wildcard_DNS tool to filter these out.  wildcard_DNS can also be used as an obfuscation technique.  We have some checks for this in the script but, I'm just vibe coding so take with grain of salt pls 
 
 ### Use Cases
 
