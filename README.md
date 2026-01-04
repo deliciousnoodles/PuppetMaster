@@ -2,7 +2,7 @@
 
 ## SpiderFoot Sock Puppet Detector
 
-> *"Finding the strings that connect the puppets"*
+> *"if it smells like sock and looks like a sock, it just might be....a sock"*
 
 ```
 ╭─────────────────────────────────────────────────────────────────────────────────────────────╮
